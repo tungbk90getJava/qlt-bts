@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UploadExcel from "./components/UploadExcel";
+import BaoCao1 from "./components/BaoCao1";
+import BaoCao2 from "./components/BaoCao2"; // Có thể làm trống trước
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UploadExcel />} />
+        <Route path="/bao-cao-1" element={<BaoCao1 />} />
+        <Route path="/bao-cao-2/:tenTram" element={<BaoCao2 />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
